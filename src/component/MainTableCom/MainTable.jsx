@@ -7,7 +7,7 @@ import { FaRegTrashAlt } from 'react-icons/fa'
 
 import { Remove , MultiRemove} from "../../store and slider/slider/ContactSlicer"
 
-import TableHeader from "../MainTableCom/TableHeader"
+import TableHeader from "./TableHeader"
 import { useNavigate } from "react-router-dom"
 
 const MainTable = () => {
@@ -40,7 +40,6 @@ const MainTable = () => {
   }
   const toPerson = (id) => {
     nav('person', { state: { id } })
-    console.log(id)
   }
 
   return (
@@ -69,10 +68,15 @@ const MainTable = () => {
             {
             Contact.map((each) => {
                 return <>
-                  <tr onClick={()=>toPerson(each.id)} key={each.id}  className='text-center hover:bg-gray-200 group duration-300'>
+                  <tr onClick={(e)=>{
+                    // console.log(e.target.name);
+                    if (e.target.name != 'check') {
+                      toPerson(each.id)
+                    }
+                  }} key={each.id} className='text-center hover:bg-gray-200 group duration-300'>
                   <td className='text-start py-1 flex items-center my-2 '>
 
-                      <input onClick={(e)=>handleCheck(e,each.id)} type="checkbox" className={ `hidden mx-3 group-hover:block w-4 h-4 z-50 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`} />
+                      <input name='check' onClick={(e)=>handleCheck(e,each.id)} type="checkbox" className={ `hidden mx-3 group-hover:block w-4 h-4 z-50 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`} />
                       <img className='w-[15%]  rounded-full' src={each.photo} alt="" />
                    
                     <span className='mx-3'>{ each.firstName +' '+ each.surName }</span>

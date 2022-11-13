@@ -1,10 +1,9 @@
 import React from 'react'
 import LoginInput from './LoginInput'
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate ,Link } from 'react-router-dom'
 
 const Login = () => {
-    // const nav = useNavigate()
   return (
     <div className='flex justify-center items-center h-[100vh] overflow-hidden'>
       <div className='w-[50%] '>
@@ -20,7 +19,7 @@ const Login = () => {
               <LoginInput  >password</LoginInput >
             <div className='flex justify-end items-center'>
               <a className='text-blue-600 hover:text-blue-800 text-md' href="">Create Account</a>
-              <button className='ml-auto bg-blue-600 hover:bg-blue-800  py-2 rounded text-white px-5 text-md'  >next </button>
+              <Link to={"/home"} className='ml-auto bg-blue-600 hover:bg-blue-800  py-2 rounded text-white px-5 text-md'  >next </Link>
             </div>
 
           </form>
