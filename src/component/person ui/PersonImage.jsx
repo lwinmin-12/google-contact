@@ -23,7 +23,7 @@ const PersonImage = ({id}) => {
         {
             Contact.map(each => {
                 if (each.id == id) {
-                    return <>
+                    return (
                         <div key={each.id} className='flex items-center justify-between w-[90%]'>
 
                             <div className='flex items-center'>
@@ -51,7 +51,7 @@ const PersonImage = ({id}) => {
                             </div>  
 
                         </div>
-                    </>
+                    )
                 }
                
                 // console.log(each)
