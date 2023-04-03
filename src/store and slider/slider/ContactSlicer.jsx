@@ -31,21 +31,15 @@ const ContactSlicer = createSlice({
   initialState,
   reducers: {
     Add: (state, action) => {
-      console.log(action.payload);
       return [...state, action.payload];
     },
     Remove: (state, action) => {
-      // state.map(e=>console.log(e))
       return state.filter((each) => each.id != action.payload);
     },
     MultiRemove: (state, action) => {
-      console.log(action.payload);
-      // state.map(each=> console.log(action.payload.includes))
-
       return state.filter((each) => !action.payload.includes(each.id));
     },
     update: (state, action) => {
-      console.log(action.payload);
       return state.map((ea) =>
         ea.id == action.payload.id
           ? {

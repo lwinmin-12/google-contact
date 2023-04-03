@@ -28,7 +28,6 @@ const Edit = () => {
 
   const handleInputChange = (value, name) => {
     setEditForm((prev) => ({ ...prev, [name]: value }));
-    console.log(value);
   };
 
   const setImage = (img) => {
@@ -36,10 +35,9 @@ const Edit = () => {
     reader.readAsDataURL(img);
     reader.addEventListener("load", (event) => {
       editImageTag.current.src = event.target.result;
-      setEditForm((prev) => ({ ...prev, photo : event.target.result  }))
+      setEditForm((prev) => ({ ...prev, photo: event.target.result }));
     });
   };
-
 
   useEffect(() => {
     Contact.map((ea) => {
@@ -62,13 +60,10 @@ const Edit = () => {
     <>
       <div className="h-[100vh]  w-[100%]">
         {Contact.map((ea) => {
-          // i.id == location.state.id
-          //   ? console.log("work")
-          //   : console.log("not");
           if (ea.id == location.state.id) {
             return (
               <div key={ea.id}>
-                <div  className="flex">
+                <div className="flex">
                   <div className="w-[80%] mb-3 relative flex items-center space-x-7">
                     <div className="text-gray-500 absolute  text-2xl top-0 ">
                       <AiOutlinePlus

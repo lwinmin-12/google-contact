@@ -28,8 +28,14 @@ const ContactDetail = ({ id }) => {
                 <div className="flex items-center space-x-3">
                   <BsTelephone className="text-xl text-gray-500" />
                   <p className="text-sky-600">
-                    +959254098293{" "}
-                    <span className="text-xs text-gray-500">. mobile</span>{" "}
+                    {each.phone == "" ? (
+                      <p className="text-sky-600">Add phone</p>
+                    ) : (
+                      <p className="text-sky-600">
+                        {each.phone}
+                        <span className="text-xs text-gray-500">. mobile</span>
+                      </p>
+                    )}
                   </p>
                 </div>
                 <div className="flex items-center space-x-3">

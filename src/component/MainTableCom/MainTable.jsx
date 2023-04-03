@@ -28,19 +28,16 @@ const MainTable = () => {
       setMultiSection(multiSection.filter((ea) => ea != id));
     }
   };
-  // console.log(multiSection)
   const handleDelete = (id) => {
     dispatch(Remove(id));
   };
   const multiDelete = () => {
-    console.log("work");
     dispatch(MultiRemove(multiSection));
     setMultiSection([]);
   };
   const toPerson = (id) => {
     nav("person", { state: { id } });
   };
-  console.log(Contact);
   return (
     <div className="w-[80%]">
       <table className="w-[100%] text-gray-500">
@@ -75,53 +72,53 @@ const MainTable = () => {
 
           {Contact.map((each) => {
             return (
-                <tr
-                  key={each.id}
-                  name="tr"
-                  onClick={(e) => {
-                    if (e.target.tagName == "TD") {
-                      toPerson(each.id);
-                    }
-                  }}
-                  className="text-center hover:bg-gray-200   group duration-300"
-                >
-                  <td className="text-start py-1 flex items-center my-2 ">
-                    <input
-                      name="check"
-                      onClick={(e) => handleCheck(e, each.id)}
-                      type="checkbox"
-                      className={`hidden mx-3 group-hover:block w-4 h-4 z-50 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
-                    />
-                    <img
-                      className="w-[15%]  rounded-full"
-                      src={each.photo}
-                      alt=""
-                    />
+              <tr
+                key={each.id}
+                name="tr"
+                onClick={(e) => {
+                  if (e.target.tagName == "TD") {
+                    toPerson(each.id);
+                  }
+                }}
+                className="text-center hover:bg-gray-200   group duration-300"
+              >
+                <td className="text-start py-1 flex items-center my-2 ">
+                  <input
+                    name="check"
+                    onClick={(e) => handleCheck(e, each.id)}
+                    type="checkbox"
+                    className={`hidden mx-3 group-hover:block w-4 h-4 z-50 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
+                  />
+                  <img
+                    className="w-[40px] h-[40px] object-cover rounded-full"
+                    src={each.photo}
+                    alt=""
+                  />
 
-                    <span className="mx-3">
-                      {each.firstName + " " + each.surName}
-                    </span>
-                  </td>
-                  <td>{each.email}</td>
-                  <td>{each.phone}</td>
-                  <td>{each.companyName}</td>
-                  <td className="text-end  duration-75 text-lg ">
-                    <div name="hello" className="scale-0 group-hover:scale-[1]">
-                      <button className="mx-2 relative sug after:content-['star_contact']">
-                        <FiStar />
-                      </button>
-                      <button className="mx-3 sug relative after:content-['Edit']">
-                        <FiEdit3 />
-                      </button>
-                      <button
-                        // onClick={() => handleDelete(each.id)}
-                        className="mr-2 relative sug"
-                      >
-                        <FaRegTrashAlt />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
+                  <span className="mx-3">
+                    {each.firstName + " " + each.surName}
+                  </span>
+                </td>
+                <td>{each.email}</td>
+                <td>{each.phone}</td>
+                <td>{each.companyName}</td>
+                <td className="text-end  duration-75 text-lg ">
+                  <div name="hello" className="scale-0 group-hover:scale-[1]">
+                    <button className="mx-2 relative sug after:content-['star_contact']">
+                      <FiStar />
+                    </button>
+                    {/* <button onClick={() =>} className="mx-3 sug relative after:content-['Edit']">
+                      <FiEdit3 />
+                    </button> */}
+                    <button
+                      onClick={() => handleDelete(each.id)}
+                      className="mr-2 relative sug bg-red-500 text-white p-1 rounded"
+                    >
+                      <FaRegTrashAlt />
+                    </button>
+                  </div>
+                </td>
+              </tr>
             );
           })}
         </tbody>

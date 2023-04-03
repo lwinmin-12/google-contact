@@ -5,7 +5,6 @@ import { AiOutlineMail } from "react-icons/ai";
 import FloatingUi from "./FloatingUi";
 
 const FormInput = ({ handleInputChange, editForm }) => {
-  // console.log(editForm)
   return (
     <div className="w-[50%] h-[50%] mt-6 space-y-5">
       <div className="flex items-center space-x-8">
