@@ -11,6 +11,7 @@ import {
 
 import TableHeader from "./TableHeader";
 import { useNavigate } from "react-router-dom";
+import CreateContactBtn from "../Side Bar Component/CreateContactBtn";
 
 const MainTable = () => {
   const { Contact } = useSelector((state) => state);
@@ -39,7 +40,7 @@ const MainTable = () => {
     nav("person", { state: { id } });
   };
   return (
-    <div className="w-[80%]">
+    <div className="w-[100%] lg:w-[85%] relative">
       <table className="w-[100%] text-gray-500">
         <thead>
           {multiSection.length > 0 ? (
@@ -56,11 +57,7 @@ const MainTable = () => {
               </button>
             </TableHeader>
           ) : (
-            <TableHeader
-              phone={"Phone Number"}
-              email={"Email"}
-              job={"Job title & Company"}
-            >
+            <TableHeader phone={"Phone Number"} email={"Email"} job={"Company"}>
               Name
             </TableHeader>
           )}
@@ -95,7 +92,7 @@ const MainTable = () => {
                     alt=""
                   />
 
-                  <span className="mx-3">
+                  <span className="mx-3 hidden">
                     {each.firstName + " " + each.surName}
                   </span>
                 </td>
@@ -107,9 +104,6 @@ const MainTable = () => {
                     <button className="mx-2 relative sug after:content-['star_contact']">
                       <FiStar />
                     </button>
-                    {/* <button onClick={() =>} className="mx-3 sug relative after:content-['Edit']">
-                      <FiEdit3 />
-                    </button> */}
                     <button
                       onClick={() => handleDelete(each.id)}
                       className="mr-2 relative sug bg-red-500 text-white p-1 rounded"
@@ -123,6 +117,9 @@ const MainTable = () => {
           })}
         </tbody>
       </table>
+      <div className="absolute lg:hidden bottom-0 right-0">
+        <CreateContactBtn />
+      </div>
     </div>
   );
 };

@@ -8,7 +8,9 @@ function App() {
       <Router>
         <Navbar />
         <div className="flex h-[89%]">
-          <SideBar />
+          <div className="w-[15%] hidden lg:flex flex-col items-center">
+            <SideBar />
+          </div>
 
           <Routes>
             <Route path="/" element={<MainTable />} />

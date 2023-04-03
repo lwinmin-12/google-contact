@@ -11,7 +11,7 @@ const initialState = [
     companyName: "MMS Junior",
     jobTitle: "Web Developer",
     phone: "09123456",
-    email: "moemaylin@gmail.com",
+    email: "lwinminoo@gmail.com",
   },
   {
     id: uuidv4(),
@@ -22,7 +22,7 @@ const initialState = [
     companyName: "Junior MMS",
     jobTitle: "Developer Web",
     phone: "09945239485",
-    email: "minmay@gmail.com",
+    email: "minlwinz@gmail.com",
   },
 ];
 
